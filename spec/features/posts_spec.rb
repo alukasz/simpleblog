@@ -71,4 +71,17 @@ feature 'Posts' do
 
     expect(page).to have_css '.flash-alert', text: 'Post not found.'
   end
+
+  scenario 'friendly id generates slug' do
+    first_post = create :post
+    second_post = create :post
+    third_post = create :post
+
+    visit post_path(first_post)
+    expect(current_path).to match(/post-title/)
+    visit post_path(second_post)
+    expect(current_path).to match(/post-title-2/)
+    visit post_path(third_post)
+    expect(current_path).to match(/post-title-3/)
+  end
 end

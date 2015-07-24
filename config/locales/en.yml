@@ -16,4 +16,9 @@ en:
         "%B %d"
 
   titles:
-    application: Simpleblog
+    application: Simple Blog in Rails
+    posts:
+      index: Latest Posts
+      new: Create Post
+      show: '%{post_title}'
+      edit: Edit Post

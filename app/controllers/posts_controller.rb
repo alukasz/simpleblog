@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   rescue_from ActiveRecord::RecordNotFound, with: :post_not_found
 
   def index

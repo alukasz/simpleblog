@@ -62,4 +62,13 @@ feature 'Posts' do
     expect(page).to have_title 'Latest Post'
     expect(page).to have_no_content post.title
   end
+
+  scenario 'visiting non existing post' do
+    post = create :post
+
+    post.destroy
+    visit post_path(post)
+
+    expect(page).to have_css '.flash-alert', text: 'Post not found.'
+  end
 end

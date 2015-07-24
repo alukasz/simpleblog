@@ -3,6 +3,7 @@ FactoryGirl.define do
     title 'Post title'
     teaser 'Post teaser'
     text 'Post text'
+    user
 
     factory :invalid_post do
       title ''

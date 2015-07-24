@@ -1,4 +1,12 @@
 feature 'Posts' do
+  background do
+    admin = create :admin
+
+    visit new_user_session_path
+    fill_form(:user, email: admin.email, password: admin.password)
+    click_button 'Log in'
+  end
+
   scenario 'listing posts' do
     first_post = create(:post)
     second_post = create(:post)

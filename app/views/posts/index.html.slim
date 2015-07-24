@@ -12,7 +12,7 @@ section#posts
       .title
         h2 = link_to post.title, post
       .teaser = post.teaser
-      .author = link_to 'Łukasz Antończyk'
+      .author = link_to post.user.name
       .date = post.created_at
       .tags-inline
         - for tag in ['Rails', 'Ruby']

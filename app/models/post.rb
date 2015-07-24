@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  belongs_to :user
+
   validates :title, presence: true
   validates :teaser, presence: true
   validates :text, presence: true

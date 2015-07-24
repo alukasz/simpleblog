@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   rescue_from ActiveRecord::RecordNotFound, with: :post_not_found
 
   def index
@@ -11,11 +11,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.create(post_params)
     if @post.save
       flash[:success] = 'Post has been created.'
       redirect_to @post

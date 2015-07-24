@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :post_not_found
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -47,4 +48,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :teaser, :text)
   end
 
+  def post_not_found
+    flash[:alert] = 'Post not found.'
+    redirect_to posts_path
+  end
 end

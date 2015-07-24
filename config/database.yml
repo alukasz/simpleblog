@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: simple_development
+
+test:
+  <<: *default
+  database: simple_test
+
+production:
+  <<: *default
+  database: simple_production
+  username: vagrant
+  password: <%= ENV['VAGRANT_DATABASE_PASSWORD'] %>

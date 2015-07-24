@@ -1,0 +1,12 @@
+section#user
+  h2 Edit Account
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = f.error_notification
+    = f.input :name, autofocus: true
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :current_password
+    = f.button :submit, "Update Account"
+    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button'
+  = render "devise/shared/links"

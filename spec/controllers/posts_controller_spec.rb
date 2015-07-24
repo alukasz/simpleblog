@@ -89,7 +89,7 @@ RSpec.describe PostsController, type: :controller do
 
       it 'does not update the post in the database' do
         post.reload
-        expect(post.title).to eq 'Title'
+        expect(post.title).to eq 'Post title'
       end
 
       it 're-renders posts#edit' do

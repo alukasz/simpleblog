@@ -1,0 +1,18 @@
+.container {
+  @include outer-container;
+}
+
+header {
+  border-bottom: 1px solid $light-gray;
+  @include padding(40px 0 40px);
+
+  .title {
+    @include span-columns(8);
+    @include shift(2);
+    text-align: center;
+
+    h1 {
+      @include margin(0);
+    }
+  }
+}

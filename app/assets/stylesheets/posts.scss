@@ -1,0 +1,65 @@
+#posts, #post {
+  @include span-columns(8);
+  @include shift(2);
+
+  .author {
+    font-style: italic;
+    display: inline;
+  }
+
+  .author::after {
+    content: "–";
+    color: $medium-gray;
+    display: inline;
+    margin: 0 0.5rem;
+    font-size: em(18);
+  }
+
+  .date {
+    display: inline-block;
+    color: $medium-gray;
+  }
+
+  .content {
+    @include padding(30px null);
+    border-bottom: 1px solid $light-gray;
+  }
+
+  .links {
+    @include padding(20px null);
+    border-bottom: 1px solid $light-gray;
+
+    a.button {
+      @include margin(null 0.75rem null null);
+      display: inline-block;
+    }
+  }
+
+  .post-content {
+    @include padding(40px null);
+    border-bottom: 1px solid $light-gray;
+
+    .teaser {
+      @include margin(null null 20px);
+      color: darken($medium-gray, 20%);
+      font-size: em(19px);
+    }
+
+    .tags-inline {
+      @include margin(null null null 0.5rem);
+      display: inline-block;
+      font-size: $base-font-size * 0.9;
+    }
+  }
+
+  .post-header {
+    @include padding(40px null);
+    text-align: center;
+    border-bottom: 1px solid $light-gray;
+
+    .tags {
+      @include margin(10px null null);
+      font-size: $base-font-size * 0.9;
+    }
+  }
+}

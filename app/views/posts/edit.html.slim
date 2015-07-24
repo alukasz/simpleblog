@@ -1,5 +1,8 @@
-= simple_form_for @post do |f|
-  = f.input :title
-  = f.input :teaser
-  = f.input :text, as: :text
-  = f.submit 'Create Post'
+section#post
+  h2 Edit Post
+  = simple_form_for @post do |f|
+    = f.input :title
+    = f.input :teaser
+    = f.input :text, as: :text
+    = f.submit 'Update Post'
+    = link_to 'Back', post_path(@post), class: 'button'

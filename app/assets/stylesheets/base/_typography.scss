@@ -31,12 +31,36 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: darken($action-color, 15%);
+    color: darken($action-color, 10%);
   }
 
   &:active,
   &:focus {
     outline: none;
+  }
+}
+
+h2 {
+  a {
+    color: $dark-gray;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: darken($action-color, 5%);
+    }
+  }
+}
+
+.tags {
+  a {
+    color: $dark-red;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: darken($dark-red, 15%);
+    }
   }
 }
 
@@ -53,3 +77,17 @@ picture {
   margin: 0;
   max-width: 100%;
 }
+
+h1 {
+  font-size: $base-font-size * 2.8;
+}
+
+h2 {
+  font-size: $base-font-size * 2;
+
+  &.form-title {
+    @include margin(30px null null);
+  }
+}
+
+

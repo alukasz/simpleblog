@@ -1,3 +1,14 @@
-- for post in @posts do
-  = post.title
-  = post.teaser
+section#posts
+  .links
+    = link_to 'New Post', new_post_path, class: 'button'
+  -for post in @posts
+    .post-content
+      .title
+        h2 = link_to post.title, post
+      .teaser = post.teaser
+      .author = link_to 'Łukasz Antończyk'
+      .date = post.created_at
+      .tags-inline
+        - for tag in ['Rails', 'Ruby']
+          = link_to tag
+

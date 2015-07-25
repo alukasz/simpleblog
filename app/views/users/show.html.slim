@@ -1,0 +1,23 @@
+#users
+  h1
+    = @user.name
+    .email = @user.email
+
+  ul.accordion-tabs
+    li.tab-header-and-content
+      a href="javascript:void(0)" class="is-active tab-link"
+        h2 Posts
+      .tab-content
+        - for post in @posts
+          .post
+            .title
+              h3 = link_to post.title, post
+            .teaser = post.teaser
+            .date = post.created_at
+            .tags-inline
+              - for tag in ['Rails', 'Ruby']
+                = link_to tag
+    li.tab-header-and-content
+      a href="javascript:void(0)" class="tab-link"
+        h2 Comments
+      .tab-content Soon.

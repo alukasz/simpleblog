@@ -1,0 +1,47 @@
+.accordion-tabs {
+  $large-screen: em(860) !default;
+
+  @include clearfix;
+  padding: 0;
+
+  .tab-header-and-content {
+    list-style: none;
+
+    @include media($large-screen) {
+      display: inline;
+    }
+  }
+
+  .tab-link {
+    display: block;
+    padding-right: 1em;
+
+    @include media($large-screen) {
+      display: inline-block;
+    }
+  }
+
+  a.tab-link {
+    color: $dark-gray;
+
+    &:hover {
+      color: lighten($dark-gray, 25%);
+    }
+  }
+
+  .is-active {
+    color: $red !important;
+    &:hover {
+      color: $red !important;
+    }
+  }
+
+  .tab-content {
+    display: none;
+    width: 100%;
+
+    @include media($large-screen) {
+      float: left;
+    }
+  }
+}

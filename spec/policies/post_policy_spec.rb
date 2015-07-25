@@ -2,6 +2,8 @@ describe PostPolicy do
   let(:user) { create :user }
   let(:admin) { create :admin }
   let(:other_admin) { create :admin }
+  let(:admin_post) { create :post, user: admin }
+  let(:other_admin_post) { create :post, user: other_admin }
 
   subject { PostPolicy }
 
@@ -29,11 +31,11 @@ describe PostPolicy do
     it { is_expected.not_to permit user }
 
     it 'allows admin to edit their own post' do
-      expect(subject).to permit(admin, admin)
+      expect(subject).to permit(admin, admin_post)
     end
 
     it 'prevents edit if admin is not auhtor of post' do
-      expect(subject).not_to permit(admin, other_admin)
+      expect(subject).not_to permit(admin, other_admin_post)
     end
   end
 
@@ -41,11 +43,11 @@ describe PostPolicy do
     it { is_expected.not_to permit user }
 
     it 'allows admin to update their own post' do
-      expect(subject).to permit(admin, admin)
+      expect(subject).to permit(admin, admin_post)
     end
 
     it 'prevents updates if admin is not auhtor of post' do
-      expect(subject).not_to permit(admin, other_admin)
+      expect(subject).not_to permit(admin, other_admin_post)
     end
   end
 
@@ -53,11 +55,11 @@ describe PostPolicy do
     it { is_expected.not_to permit user }
 
     it 'allows admin to destroy their own post' do
-      expect(subject).to permit(admin, admin)
+      expect(subject).to permit(admin, admin_post)
     end
 
     it 'prevents destroy if admin is not auhtor of post' do
-      expect(subject).not_to permit(admin, other_admin)
+      expect(subject).not_to permit(admin, other_admin_post)
     end
   end
 end

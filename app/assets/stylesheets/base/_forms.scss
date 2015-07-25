@@ -76,3 +76,9 @@ select {
   max-width: 100%;
   width: auto;
 }
+
+#user {
+  input[type="submit"] {
+    display: inline;
+  }
+}

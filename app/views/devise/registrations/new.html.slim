@@ -7,5 +7,6 @@ section#user
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
     = f.button :submit, "Sign up"
+    = link_to 'Back', posts_path, class: 'button'
 
   = render "devise/shared/links"

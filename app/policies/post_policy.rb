@@ -8,7 +8,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def new?
-    @user.admin?
+    @user.admin? if @user
   end
 
   def create?
@@ -16,7 +16,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.admin?
+    @user.admin? if @user
   end
 
   def update?

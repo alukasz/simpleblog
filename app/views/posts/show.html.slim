@@ -12,5 +12,7 @@ section#post
   .content = @post.text
   .links
     = link_to 'Back', posts_path, class: 'button'
-    = link_to 'Edit Post', edit_post_path(@post), class: 'button'
-    = link_to 'Delete Post', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button'
+    - if policy(@post).update?
+      = link_to 'Edit Post', edit_post_path(@post), class: 'button'
+    - if policy(@post).destroy?
+      = link_to 'Delete Post', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button'

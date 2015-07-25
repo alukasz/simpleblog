@@ -3,3 +3,9 @@
   @include shift(4);
   @include padding(40px null);
 }
+
+#user-wide {
+  @include span-columns(6);
+  @include shift(3);
+  @include padding(40px null);
+}

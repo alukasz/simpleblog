@@ -32,4 +32,6 @@ button, .button {
 
 form .button {
   @include margin(null null null 0.75rem);
+  display: inline-block;
 }
+

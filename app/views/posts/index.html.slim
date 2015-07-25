@@ -1,6 +1,7 @@
 section#posts
   .links
-    = link_to 'New Post', new_post_path, class: 'button'
+    - if policy(:post).new?
+      = link_to 'New Post', new_post_path, class: 'button'
     - unless user_signed_in?
       = link_to 'Log in', new_user_session_path, class: 'button'
       = link_to 'Sign up', new_user_registration_path, class: 'button'

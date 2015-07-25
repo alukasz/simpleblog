@@ -4,7 +4,7 @@ section#post
   .post-header
     .title
       h2 = @post.title
-    .author = link_to @post.user.name
+    .author = link_to @post.user.name, user_path(@post.user)
     .date = @post.created_at
     .tags
       - for tag in ['Rails', 'Ruby']

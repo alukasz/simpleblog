@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     authorize @user
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def update

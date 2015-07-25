@@ -16,7 +16,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    (@user.admin? if @user) && @user == @record
+    (@user.admin? if @user) && @user.id == @record.user_id
   end
 
   def update?

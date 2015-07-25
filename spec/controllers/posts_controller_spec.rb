@@ -1,8 +1,8 @@
 RSpec.describe PostsController, type: :controller do
-  let(:post) { create(:post) }
-  let(:invalid_post) { create(:post) }
   let(:user) { create(:user) }
   let(:admin) { create(:admin) }
+  let(:post) { create(:post, user: admin) }
+  let(:invalid_post) { create(:post, user: admin) }
 
   shared_examples_for 'everybody have to pass this' do
     describe 'GET #index' do
@@ -143,7 +143,7 @@ RSpec.describe PostsController, type: :controller do
       context 'with valid attributions' do
         before :each do
           patch :update, id: post, post: attributes_for(
-            :post, title: 'An updated Post'
+            :post, title: 'An updated Post', user: admin
           )
         end
 
@@ -163,7 +163,8 @@ RSpec.describe PostsController, type: :controller do
 
       context 'with invalid attributes' do
         before :each do
-          patch :update, id: post, post: attributes_for(:post, title: '')
+          patch :update, id: post,
+            post: attributes_for(:post, title: '', user: admin)
         end
 
         it 'does not update the post in the database' do

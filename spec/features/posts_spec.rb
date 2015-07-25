@@ -82,10 +82,10 @@ feature 'Posts' do
 
   context 'admin access' do
     background do
-      admin = create :admin
+      @admin = create :admin
 
       visit new_user_session_path
-      fill_form(:user, email: admin.email, password: admin.password)
+      fill_form(:user, email: @admin.email, password: @admin.password)
       click_button 'Log in'
     end
 
@@ -127,7 +127,7 @@ feature 'Posts' do
     end
 
     scenario 'editing posts' do
-      post = create :post
+      post = create :post, user: @admin
 
       visit post_path(post)
       click_link 'Edit Post'
@@ -145,7 +145,7 @@ feature 'Posts' do
     end
 
     scenario 'deleting post' do
-      post = create :post
+      post = create :post, user: @admin
 
       visit post_path(post)
       click_link 'Delete Post'
